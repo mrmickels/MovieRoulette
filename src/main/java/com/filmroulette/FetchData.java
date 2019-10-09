@@ -5,9 +5,7 @@
 package com.filmroulette;
 
 import okhttp3.*;
-
 import java.io.IOException;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -36,7 +34,6 @@ public class FetchData {
         }
         json = responseBody;
 		return responseBody;
-
     }
     
     // method to parse the data and only pull the upcoming movie titles
@@ -50,6 +47,4 @@ public class FetchData {
     		System.out.println(results_title);
     	}
     }
-    
-    
 }
