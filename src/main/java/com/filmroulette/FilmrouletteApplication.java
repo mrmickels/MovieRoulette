@@ -11,11 +11,6 @@ public class FilmrouletteApplication {
 
         FetchData upcomingMovies = new FetchData();
         upcomingMovies.fetchData();
-        upcomingMovies.parseData();
-        
-        
+        upcomingMovies.parseData();     
 	}
-
 }
-
-
