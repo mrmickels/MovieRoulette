@@ -12,6 +12,7 @@ import org.json.JSONObject;
 public class FetchData {
 	String responseBody = "";
 	String json = "...";
+	String resultsTitle = "...";
 	
 	// method to pull data from API *need to make method have a parameter to have the URL passed to it instead of the static request
     public String fetchData(){
@@ -37,7 +38,7 @@ public class FetchData {
     }
     
     // method to parse the data and only pull the upcoming movie titles
-    public void parseData() {
+    public String parseData(){
     	
     	JSONObject obj = new JSONObject(json);
     	
@@ -45,6 +46,9 @@ public class FetchData {
     	for (int i = 0; i < arr.length(); i++) {
     		String results_title = arr.getJSONObject(i).getString("title");
     		System.out.println(results_title);
+    		resultsTitle = results_title;
+    		
     	}
+    	return resultsTitle;
     }
 }
