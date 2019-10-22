@@ -1,27 +1,43 @@
 package com.filmroulette.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.springframework.stereotype.Component;
+
+import com.filmroulette.FetchData;
 import com.filmroulette.dto.UpcomingMovieDTO;
 
 
 @Component
 public class UpcomingMovieServiceStub implements IUpcomingMovieService {
-	
-//	@Override
-//	public SpecimenDTO fetchById(int id) {
-//		SpecimenDTO specimenDTO = new SpecimenDTO();
-//		specimenDTO.setSpecimenId(43);
-//		specimenDTO.setLatitude("40.70");
-//		specimenDTO.setLongitude("-65.42");
-//		specimenDTO.setDescription("A Beautiful Eastern RedBud");
-//		return specimenDTO;
-//	}
 
 
 	@Override
 	public UpcomingMovieDTO fetchById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<String> upcomingMovieArrayTitle = new ArrayList<String>();
+		ArrayList<String> upcomingMovieArrayDescription = new ArrayList<String>();
+		ArrayList<String> upcomingMovieArrayReleaseDate = new ArrayList<String>();
+		UpcomingMovieDTO upcomingMovieDTO = new UpcomingMovieDTO();
+		
+		FetchData upcomingMovies = new FetchData();
+	    upcomingMovies.fetchData();
+	    
+	    upcomingMovieArrayTitle = upcomingMovies.parseData("title");
+	    upcomingMovieArrayDescription = upcomingMovies.parseData("overview");
+	    upcomingMovieArrayReleaseDate = upcomingMovies.parseData("release_date");
+	    
+		
+		
+		for(int i=0; i < upcomingMovieArrayTitle.size(); i++) {
+			upcomingMovieDTO.setMovieId(i);
+			upcomingMovieDTO.setTitle(upcomingMovieArrayTitle.get(i));
+			upcomingMovieDTO.setReleaseDate(upcomingMovieArrayReleaseDate.get(i));
+			upcomingMovieDTO.setDescription(upcomingMovieArrayDescription.get(i));
+		}
+		return upcomingMovieDTO;
+
 	}
 
 	@Override

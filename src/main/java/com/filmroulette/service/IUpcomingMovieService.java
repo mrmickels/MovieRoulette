@@ -11,15 +11,15 @@ import com.filmroulette.dto.*;
 public interface IUpcomingMovieService {
 	
 	/**
-	 * Get specimens from persistence layer
+	 * Get movies
 	 *@param id a unique lookup
-	 *@return a specimen with a matching ID
+	 *@return a movie with matching movie
 	 */
 	UpcomingMovieDTO fetchById(int id);
 	
 	/**
-	 *Persist the given DTO
-	 *@param specimenDTO
+	 *
+	 *@param upcomingMovieDTO
 	 */
 
 	void save(UpcomingMovieDTO upcomingMovieDTO);
