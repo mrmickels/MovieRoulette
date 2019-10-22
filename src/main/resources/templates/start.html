@@ -1,16 +1,102 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="utf-8">
-
-    <title>Film Roulette Test</title>
-
-    <link rel="stylesheet" th:href="@{/css/index.css}"/>
-
+	<title>Welcome to MovieRoulette</title>
+	<meta charset="ISO-8859-1"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/index.css}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js%22%3E"></script>
 </head>
 
 <body>
-        <h1>Film Roulette</h1>
-		<h2 th:text="${msg}"></h2>
+	
+	<nav class="navbar navbar-light" style="background-color: #8f34eb;">
+	  <a class="navbar-brand">Welcome to MovieRoulette</a>
+	  <form class="form-inline">
+	    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	  </form>
+	</nav>
+	<br/>
+	<h3>Upcoming Movies</h3>
+	<div class="card-deck col-xs-6" style="padding: 20px;">
+	  <div class="card" style="max-width: 202px; max-height: 200px;" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider card </p>
+	      <p th:text="${upcomingMovieDTO}"/>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	    </div>
+	  <div class="card" style="max-width: 202px; max-height: 200px" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This card has.</p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	<div class="card" style="max-width: 202px; max-height: 200px" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider card </p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	
+	    <div class="card" style="max-width: 202px; max-height: 200px"  >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider </p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	
+	    <div class="card" style="max-width: 202px; max-height: 200px" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider card </p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	
+	    <div class="card" style="max-width: 202px; max-height: 200px" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider card </p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	 
+	    <div class="card" style="max-width: 202px; max-height: 200px" >
+	    <img src="..." class="card-img-top" alt="...">
+	    <div class="card-body">
+	      <p class="card-text">This is a wider card </p>
+	    </div>
+	    <div class="card-footer">
+	      <small class="text-muted">Last updated 3 mins ago</small>
+	    </div>
+	  </div>
+	</div>
 </body>
+<footer>
+	<div class="list-group" th:each="upcomingMovieDTOs : ${upcomingMovieDTO}">
+		<a href="#" class="list-group-item list-group-item-action">
+			<p th:text="${upcomingMovieDTOs}"/>
+		</a>
+	</div>
+	
+</footer>
 </html>

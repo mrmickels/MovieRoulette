@@ -6,13 +6,20 @@ package com.filmroulette;
 
 import okhttp3.*;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class FetchData {
 	String responseBody = "";
 	String json = "...";
-	String resultsTitle = "...";
+	//String resultsTitle = "...";
+	String resultsQueried = "...";
+	//String releaseDate = "...";
+    ArrayList<String> upcomingArray = new ArrayList<String>(); 
+    
+
 	
 	// method to pull data from API *need to make method have a parameter to have the URL passed to it instead of the static request
     public String fetchData(){
@@ -38,17 +45,19 @@ public class FetchData {
     }
     
     // method to parse the data and only pull the upcoming movie titles
-    public String parseData(){
+    public ArrayList<String> parseData(String resultQuery){
     	
+    	//resultQuery = "\"" + resultQuery + "\"";
     	JSONObject obj = new JSONObject(json);
     	
     	JSONArray arr = obj.getJSONArray("results");
     	for (int i = 0; i < arr.length(); i++) {
-    		String results_title = arr.getJSONObject(i).getString("title");
-    		System.out.println(results_title);
-    		resultsTitle = results_title;
+    		String results = arr.getJSONObject(i).getString(resultQuery);
+    		System.out.println(results);
+    		resultsQueried = results;
+    		upcomingArray.add(resultsQueried);
     		
     	}
-    	return resultsTitle;
+    	return upcomingArray;
     }
 }

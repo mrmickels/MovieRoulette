@@ -1,6 +1,6 @@
 package com.filmroulette.dto;
 
-public class UpcomingMovieDTO {
+public class MovieDTO {
 	private int movieId;
 	private String title;
 	private String releaseDate;
