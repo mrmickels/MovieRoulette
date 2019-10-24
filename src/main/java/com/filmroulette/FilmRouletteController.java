@@ -17,7 +17,10 @@ public class FilmRouletteController {
 
 	@Autowired
 	private IUpcomingMovieService upcomingMovieServiceStub;
-
+    /*
+     * Initial page for the application
+     * @return String
+     */
 	@RequestMapping(value="/start", method=RequestMethod.GET)
 	public String read(Model model) {
 		UpcomingMovieDTO upcomingMovieDTO = upcomingMovieServiceStub.fetchById(1);
