@@ -34,7 +34,7 @@ public class FetchData {
                     .build();
 
             Response response = client.newCall(request).execute();
-            responseBody = response.body().string();
+            responseBody = response.body().toString();
             System.out.print(responseBody);
         }
         catch (IOException ie) {
