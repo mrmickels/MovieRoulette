@@ -17,7 +17,7 @@ public class FetchData {
 	//String resultsTitle = "...";
 	String resultsQueried = "...";
 	//String releaseDate = "...";
-    ArrayList<String> upcomingArray = new ArrayList<String>(); 
+    ArrayList<String> upcomingMovieArray = new ArrayList<String>(); 
     
 
 	
@@ -55,9 +55,9 @@ public class FetchData {
     		String results = arr.getJSONObject(i).getString(resultQuery);
     		System.out.println(results);
     		resultsQueried = results;
-    		upcomingArray.add(resultsQueried);
+    		upcomingMovieArray.add(resultsQueried);
     		
     	}
-    	return upcomingArray;
+    	return upcomingMovieArray;
     }
 }
