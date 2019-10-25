@@ -35,7 +35,7 @@ public class FetchData {
 
             Response response = client.newCall(request).execute();
             responseBody = response.body().string();
-            System.out.print(responseBody);
+      
         }
         catch (IOException ie) {
             ie.printStackTrace();
@@ -53,7 +53,7 @@ public class FetchData {
     	JSONArray arr = obj.getJSONArray("results");
     	for (int i = 0; i < arr.length(); i++) {
     		String results = arr.getJSONObject(i).getString(resultQuery);
-    		System.out.println(results);
+
     		resultsQueried = results;
     		upcomingArray.add(resultsQueried);
     		
