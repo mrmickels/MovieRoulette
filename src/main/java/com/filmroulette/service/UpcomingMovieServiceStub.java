@@ -19,6 +19,8 @@ public class UpcomingMovieServiceStub implements IUpcomingMovieService {
 		ArrayList<String> upcomingMovieArrayTitle = new ArrayList<String>();
 		ArrayList<String> upcomingMovieArrayDescription = new ArrayList<String>();
 		ArrayList<String> upcomingMovieArrayReleaseDate = new ArrayList<String>();
+		ArrayList<String> upcomingMovieArrayGenre = new ArrayList<String>();
+		ArrayList<String> upcomingMovieArrayArtist = new ArrayList<String>();
 		UpcomingMovieDTO upcomingMovieDTO = new UpcomingMovieDTO();
 		
 		FetchData upcomingMovies = new FetchData();
@@ -27,6 +29,8 @@ public class UpcomingMovieServiceStub implements IUpcomingMovieService {
 	    upcomingMovieArrayTitle = upcomingMovies.parseData("title");
 	    upcomingMovieArrayDescription = upcomingMovies.parseData("overview");
 	    upcomingMovieArrayReleaseDate = upcomingMovies.parseData("release_date");
+	    upcomingMovieArrayGenre = upcomingMovies.parseData("genre");
+	    upcomingMovieArrayArtist = upcomingMovies.parseData("artist");
 	    
 		
 		
@@ -35,6 +39,8 @@ public class UpcomingMovieServiceStub implements IUpcomingMovieService {
 			upcomingMovieDTO.setTitle(upcomingMovieArrayTitle.get(i));
 			upcomingMovieDTO.setReleaseDate(upcomingMovieArrayReleaseDate.get(i));
 			upcomingMovieDTO.setDescription(upcomingMovieArrayDescription.get(i));
+			upcomingMovieDTO.setGenre(upcomingMovieArrayGenre.get(i));
+			upcomingMovieDTO.setArtist(upcomingMovieArrayArtist.get(i));
 		}
 		return upcomingMovieDTO;
 

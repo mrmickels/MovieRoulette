@@ -5,6 +5,8 @@ public class UpcomingMovieDTO {
 	private String title;
 	private String releaseDate;
 	private String description;
+	private String genre;
+	private String artist;
 	
 	public int getMovieId() {
 		return movieId;
@@ -32,6 +34,19 @@ public class UpcomingMovieDTO {
 	}
 
 	
+	
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	public String getArtist() {
+		return artist;
+	}
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
 	@Override
 	public String toString() {
 		return movieId + " " + title + " " + releaseDate + " " + description;
