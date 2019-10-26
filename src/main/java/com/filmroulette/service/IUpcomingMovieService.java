@@ -18,8 +18,10 @@ public interface IUpcomingMovieService {
 	UpcomingMovieDTO fetchById(int id);
 	
 	/**
+	 * passes updated information to the DTO
 	 *
 	 *@param upcomingMovieDTO
+	 *
 	 */
 
 	void save(UpcomingMovieDTO upcomingMovieDTO);

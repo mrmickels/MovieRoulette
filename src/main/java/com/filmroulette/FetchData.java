@@ -14,14 +14,22 @@ import org.json.JSONObject;
 public class FetchData {
 	String responseBody = "";
 	String json = "...";
-	//String resultsTitle = "...";
+	String resultsTitle = "...";
 	String resultsQueried = "...";
-	//String releaseDate = "...";
+	String releaseDate = "...";
     ArrayList<String> upcomingArray = new ArrayList<String>(); 
     
 
 	
-	// method to pull data from API *need to make method have a parameter to have the URL passed to it instead of the static request
+	
+    // method to pull data from API *need to make method have a parameter to have the URL passed to it instead of the static request
+    
+    /**
+     * Method to fetch correct URL for selected film
+     * @return the response from api request (Movie URL)
+     * 
+     * @throws IOException if request is not properly handled
+     */
     public String fetchData(){
         try {
             OkHttpClient client = new OkHttpClient();
