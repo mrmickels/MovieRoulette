@@ -1,5 +1,6 @@
 package com.filmroulette;
 
+import com.filmroulette.service.UpcomingMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.filmroulette.dto.UpcomingMovieDTO;
 import com.filmroulette.service.IUpcomingMovieService;
 
+import java.io.IOException;
+
 
 @Controller
 public class FilmRouletteController {
@@ -19,7 +22,9 @@ public class FilmRouletteController {
 	private IUpcomingMovieService upcomingMovieServiceStub;
 
 	@RequestMapping(value="/start", method=RequestMethod.GET)
-	public String read(Model model) {
+	public String read(Model model) throws IOException {
+		UpcomingMovieService upcomingMovieService = new UpcomingMovieService();
+		upcomingMovieService.parseData();
 		UpcomingMovieDTO upcomingMovieDTO = upcomingMovieServiceStub.fetchById(1);
 		model.addAttribute("upcomingMovieDTO", upcomingMovieDTO);
 		

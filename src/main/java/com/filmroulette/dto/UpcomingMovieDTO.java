@@ -34,7 +34,7 @@ public class UpcomingMovieDTO {
 	
 	@Override
 	public String toString() {
-		return movieId + " " + title + " " + releaseDate + " " + description;
+		return movieId + " " + title + " " + releaseDate + " " + description + " " + releaseDate;
 		
 	}
 
