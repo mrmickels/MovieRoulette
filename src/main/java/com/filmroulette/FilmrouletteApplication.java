@@ -1,4 +1,4 @@
-package com.filmroulette.service;
+package com.filmroulette;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
