@@ -1,9 +1,20 @@
 package com.filmroulette.dto;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class UpcomingMovieDTO {
+	@SerializedName("id")
+	@Expose
 	private int movieId;
+	@SerializedName("title")
+	@Expose
 	private String title;
+	@SerializedName("released")
+	@Expose
 	private String releaseDate;
+	@SerializedName("description")
+	@Expose
 	private String description;
 	
 	public int getMovieId() {
@@ -34,7 +45,7 @@ public class UpcomingMovieDTO {
 	
 	@Override
 	public String toString() {
-		return movieId + " " + title + " " + releaseDate + " " + description;
+		return movieId + " " + title + " " + releaseDate + " " + description + " " + releaseDate;
 		
 	}
 

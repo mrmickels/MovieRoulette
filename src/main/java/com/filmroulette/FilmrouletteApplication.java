@@ -4,9 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FilmrouletteApplication {
+public class FilmRouletteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FilmrouletteApplication.class, args);
+		SpringApplication.run(FilmRouletteApplication.class, args);
+
+
 	}
+
 }
