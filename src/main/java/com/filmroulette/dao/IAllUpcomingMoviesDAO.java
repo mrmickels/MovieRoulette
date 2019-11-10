@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IAllUpcomingMoviesDAO {
     List<UpcomingMovieDTO> fetch() throws Exception;
+    List<UpcomingMovieDTO> fetch(String filepath) throws Exception;
 }

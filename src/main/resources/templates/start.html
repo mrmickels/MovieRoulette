@@ -19,13 +19,18 @@
 	  </form>
 	</nav>
 	<br/>
+
 	<h3>Upcoming Movies</h3>
+	<ul id="upcomingMovies" class="list-group" th:each="movies : ${allUpcomingMovies}">
+		<li class="list-group-item"><div th:text="${movies}"></div> </li>
+	</ul>
+
 	<div class="card-deck col-xs-6" style="padding: 20px;">
 	  <div class="card" style="max-width: 202px; max-height: 200px;" >
 	    <img src="..." class="card-img-top" alt="...">
 	    <div class="card-body">
 	      <p class="card-text">This is a wider card </p>
-	      <p th:text="${upcomingMovieDTO}"/>
+	      <p th:text="${allUpcomingMovies}"></p>
 	    </div>
 	    <div class="card-footer">
 	      <small class="text-muted">Last updated 3 mins ago</small>
@@ -92,11 +97,5 @@
 	</div>
 </body>
 <footer>
-	<div class="list-group" th:each="upcomingMovieDTOs : ${upcomingMovieDTO}">
-		<a href="#" class="list-group-item list-group-item-action">
-			<p th:text="${upcomingMovieDTOs}"/>
-		</a>
-	</div>
-	
 </footer>
 </html>

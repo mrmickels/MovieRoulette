@@ -3,17 +3,15 @@ package com.filmroulette.dao;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-
 @Component
-public class NowPlayingMovieDAO implements INowPlayingMovieDAO {
-
+public class NetworkDAO {
     /**
-     * Get a list of movies in theatres.
-     * @return HTTP Stream from MovieDB API
-     * @throws IOException
+     * Return the data found at the given endpoint
+     * @param endpoint a URL or other location where we can find data.
+     * @return All of the data returned as one string.
+     * @throws Exception
      */
-    public String fetchNowPlayingMovieData() throws IOException{
+    public String request(String endpoint) throws Exception  {
         String responseBody = "";
 
         OkHttpClient client = new OkHttpClient();
@@ -21,7 +19,7 @@ public class NowPlayingMovieDAO implements INowPlayingMovieDAO {
         MediaType mediaType = MediaType.parse("application/octet-stream");
         RequestBody body = RequestBody.create(mediaType, "{}");
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=f1165dd92f85c95c3898f9f66103659e")
+                .url(endpoint)
                 .get()
                 .build();
 
@@ -29,7 +27,8 @@ public class NowPlayingMovieDAO implements INowPlayingMovieDAO {
 
             responseBody = response.body().string();
             System.out.print(responseBody);
-            return responseBody;
+
         }
+        return responseBody;
     }
 }
