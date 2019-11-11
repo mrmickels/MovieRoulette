@@ -16,7 +16,7 @@ import java.util.List;
 public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
 
     @Autowired
-    NetworkDAO networkDAO;
+    private NetworkDAO networkDAO;
 
 
     @Override
@@ -24,33 +24,7 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
 
         List<UpcomingMovieDTO> allUpcomingMovies = new ArrayList<>();
         String rawJson = networkDAO.request("https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f1165dd92f85c95c3898f9f66103659e");
-        JSONObject obj = new JSONObject(rawJson);
-        System.out.print(obj);
-        JSONArray movies = obj.getJSONArray("results");
-        System.out.print(movies);
-
-        for (int i = 0; i < movies.length(); i++) {
-
-            // JSON Data
-            JSONObject jsonMovie = movies.getJSONObject(i);
-            // Movie object that will be populated from JSON data
-            UpcomingMovieDTO upcomingMovieDTO = new UpcomingMovieDTO();
-
-            String overview = jsonMovie.getString("overview");
-            String released = jsonMovie.getString("release_date");
-            String title = jsonMovie.getString("title");
-
-            // populate the DTO with this information
-            upcomingMovieDTO.setMovieId(i);
-            upcomingMovieDTO.setDescription(overview);
-            upcomingMovieDTO.setReleaseDate(released);
-            upcomingMovieDTO.setTitle(title);
-
-            // add the populated movie to our collection
-            allUpcomingMovies.add(upcomingMovieDTO);
-        }
-
-        return allUpcomingMovies;
+        return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
     }
 
     public List<UpcomingMovieDTO> fetch(String filepath) throws Exception{
@@ -65,10 +39,12 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
             e.printStackTrace();
         }
 
+        return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
+    }
+
+    private List<UpcomingMovieDTO> getUpcomingMovieDTOS(List<UpcomingMovieDTO> allUpcomingMovies, String rawJson) {
         JSONObject obj = new JSONObject(rawJson);
-        System.out.print(obj);
         JSONArray movies = obj.getJSONArray("results");
-        System.out.print(movies);
 
         for (int i = 0; i < movies.length(); i++) {
 
@@ -80,20 +56,20 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
             String overview = jsonMovie.getString("overview");
             String released = jsonMovie.getString("release_date");
             String title = jsonMovie.getString("title");
+            String posterPath = jsonMovie.getString("poster_path");
 
             // populate the DTO with this information
             upcomingMovieDTO.setMovieId(i);
             upcomingMovieDTO.setDescription(overview);
             upcomingMovieDTO.setReleaseDate(released);
             upcomingMovieDTO.setTitle(title);
+            upcomingMovieDTO.setPosterPath(posterPath);
 
             // add the populated movie to our collection
             allUpcomingMovies.add(upcomingMovieDTO);
         }
 
         return allUpcomingMovies;
-
-
     }
 
 }

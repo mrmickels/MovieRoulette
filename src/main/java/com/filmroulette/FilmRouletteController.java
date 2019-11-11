@@ -5,9 +5,8 @@ import com.filmroulette.dto.UpcomingMovieDTO;
 import com.filmroulette.service.IUpcomingMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -18,7 +17,7 @@ public class FilmRouletteController {
 	private IUpcomingMovieService upcomingMovieService;
 
 
-	@RequestMapping(value="/start", method=RequestMethod.GET)
+	@GetMapping(value="/start")
 		public ModelAndView start() throws Exception {
 			ModelAndView modelAndView = new ModelAndView();
 
@@ -40,16 +39,6 @@ public class FilmRouletteController {
 	
 	@PostMapping("/start")
 	public String create() {
-		
-		return "start";
-	}	
-	/*
-	 * Handle the / endpoints
-	 * @return
-	 */
-	
-	@RequestMapping("/")
-	public String index() {
 		
 		return "start";
 	}

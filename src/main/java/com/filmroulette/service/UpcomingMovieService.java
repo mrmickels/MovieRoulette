@@ -6,6 +6,7 @@ import com.filmroulette.dto.UpcomingMovieDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,7 +29,6 @@ public class UpcomingMovieService implements IUpcomingMovieService{
 
     }
 
-
     @Override
     public List<UpcomingMovieDTO> fetchUpcomingMovies() throws Exception{
 
@@ -39,17 +39,14 @@ public class UpcomingMovieService implements IUpcomingMovieService{
         // allUpcomingMovies = allUpcomingMoviesDAO.fetch();
 
         try{
-
-            System.out.print(allUpcomingMovies);
             if (allUpcomingMovies != null) {
                 return allUpcomingMovies;
             }
         } catch (NullPointerException  e) {
-            e.printStackTrace();
             System.out.print("NullPointerException Caught for allUpcomingMoviesDAO.fetch()");
         }
 
-        return null;
+        return Collections.emptyList();
     }
 }
 

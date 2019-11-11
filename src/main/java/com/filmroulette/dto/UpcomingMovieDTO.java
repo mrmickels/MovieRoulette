@@ -16,32 +16,45 @@ public class UpcomingMovieDTO {
 	@SerializedName("description")
 	@Expose
 	private String description;
-	
+	@SerializedName("posterPath")
+	@Expose
+	private String posterPath;
+
 	public int getMovieId() {
 		return movieId;
 	}
+
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getReleaseDate() {
 		return releaseDate;
 	}
+
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	public String getPosterPath() { return posterPath; }
+
+	public void setPosterPath(String posterPath) { this.posterPath = posterPath; }
 	
 	@Override
 	public String toString() {
