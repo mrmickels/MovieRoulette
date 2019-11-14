@@ -18,7 +18,7 @@ public class SearchDAO implements ISearchDAO {
 	public List<NowPlayingMovieDTO> fetch(String searchTerm) throws Exception {
 		List<NowPlayingMovieDTO> searchResults = new ArrayList<>();
 		String endpoint = "https://api.themoviedb.org/3/search/movie?query=";
-		String api = "&api_key=%3C%3C&api_key=f1165dd92f85c95c3898f9f66103659e";
+		String api = "?include_adult=false&page=1&language=en-US&api_key=%3C%3C&api_key=f1165dd92f85c95c3898f9f66103659e";
 		String rawJson = networkDAO.request(endpoint + searchTerm + api);
 		return parseSearchResults(searchResults, rawJson);
 	}
