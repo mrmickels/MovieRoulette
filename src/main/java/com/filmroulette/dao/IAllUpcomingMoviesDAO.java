@@ -1,10 +1,10 @@
 package com.filmroulette.dao;
 
-import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 
 import java.util.List;
 
 public interface IAllUpcomingMoviesDAO {
-    List<UpcomingMovieDTO> fetch() throws Exception;
-    List<UpcomingMovieDTO> fetch(String filepath) throws Exception;
+    List<MovieDTO> fetch() throws Exception;
+    List<MovieDTO> fetch(String filepath) throws Exception;
 }

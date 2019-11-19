@@ -1,9 +1,10 @@
 package com.filmroulette;
 
-import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 import com.filmroulette.service.IImageService;
 import com.filmroulette.dao.ISearchDAO;
 import com.filmroulette.dto.NowPlayingMovieDTO;
+import com.filmroulette.service.INowPlayingService;
 import com.filmroulette.service.IUpcomingMovieService;
 import org.apache.tomcat.util.codec.binary.Base64;
 import java.util.List;
@@ -28,6 +29,9 @@ public class FilmRouletteController {
 	private IImageService imageService;
 	@Autowired
 	private ISearchDAO searchDAO;
+	@Autowired
+    private INowPlayingService nowPlayingService;
+
 
 
 	@GetMapping(value="/start")
@@ -35,9 +39,12 @@ public class FilmRouletteController {
 			ModelAndView modelAndView = new ModelAndView();
 
 			try{
-				Iterable<UpcomingMovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
+				Iterable<MovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
 				modelAndView.setViewName("start");
 				modelAndView.addObject("allUpcomingMovies", allUpcomingMovies);
+
+				Iterable<MovieDTO> nowPlayingMovie = nowPlayingService.fetchNowPlayingMovies();
+				modelAndView.addObject("nowPlayingMovie", nowPlayingMovie);
 
 			}
 			catch (Exception e){

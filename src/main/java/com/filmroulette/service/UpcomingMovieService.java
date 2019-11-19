@@ -2,7 +2,7 @@ package com.filmroulette.service;
 
 
 import com.filmroulette.dao.IAllUpcomingMoviesDAO;
-import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,19 +20,20 @@ public class UpcomingMovieService implements IUpcomingMovieService{
     IAllUpcomingMoviesDAO allUpcomingMoviesDAO;
 
     @Override
-    public UpcomingMovieDTO fetchById(int id) {
+    public MovieDTO fetchById(int id) {
         return null;
     }
 
     @Override
-    public void save(UpcomingMovieDTO upcomingMovieDTO) {
+    public void save(MovieDTO movieDTO) {
 
     }
 
-    @Override
-    public List<UpcomingMovieDTO> fetchUpcomingMovies() throws Exception{
 
-        List<UpcomingMovieDTO> allUpcomingMovies;
+    @Override
+    public List<MovieDTO> fetchUpcomingMovies() throws Exception{
+
+        List<MovieDTO> allUpcomingMovies;
 
         // This is because I am unable to make Network requests at work, uncomment line 41 and comment line 40 to switch to the actual network requests
         // allUpcomingMovies = allUpcomingMoviesDAO.fetch("src\\test\\resources\\upcomingmovieresults.json");

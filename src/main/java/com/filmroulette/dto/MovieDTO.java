@@ -3,7 +3,7 @@ package com.filmroulette.dto;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NowPlayingMovieDTO {
+public class MovieDTO {
 
     @SerializedName("id")
     @Expose

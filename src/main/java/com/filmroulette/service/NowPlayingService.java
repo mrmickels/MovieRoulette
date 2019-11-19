@@ -1,7 +1,7 @@
 package com.filmroulette.service;
 
 import com.filmroulette.dao.INowPlayingDAO;
-import com.filmroulette.dto.NowPlayingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +19,8 @@ public class NowPlayingService implements INowPlayingService {
     INowPlayingDAO nowPlayingDAO;
 
     @Override
-    public List<NowPlayingMovieDTO> fetchNowPlayingMovies() throws Exception{
-        List<NowPlayingMovieDTO> nowPlayingMovies;
+    public List<MovieDTO> fetchNowPlayingMovies() throws Exception{
+        List<MovieDTO> nowPlayingMovies;
 
         // This is because I am unable to make Network requests at work, uncomment line 27 and comment line 26 to switch to the actual network requests
         // nowPlayingMovies = nowPlayingDAO.fetch("src\\test\\resources\\nowplayingresults.json");
