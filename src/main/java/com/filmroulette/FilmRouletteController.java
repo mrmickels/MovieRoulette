@@ -24,7 +24,8 @@ public class FilmRouletteController {
 
 	@Autowired
 	private IUpcomingMovieService upcomingMovieService;
-	
+	@Autowired
+	private IImageService imageService;
 	@Autowired
 	private ISearchDAO searchDAO;
 
