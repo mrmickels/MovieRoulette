@@ -6,7 +6,7 @@ section{
 	height: 325px;
 }
 h1{
-	text-decoration: underline;
+	text-decoration: underline; 
 }
 .navbar-brand{
 	text-decoration: underline !important;
