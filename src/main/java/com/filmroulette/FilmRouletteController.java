@@ -1,15 +1,16 @@
 package com.filmroulette;
 
-
 import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.service.IImageService;
 import com.filmroulette.dao.ISearchDAO;
 import com.filmroulette.dto.NowPlayingMovieDTO;
 import com.filmroulette.service.IUpcomingMovieService;
-
+import org.apache.tomcat.util.codec.binary.Base64;
 import java.util.List;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,17 @@ public class FilmRouletteController {
 
 		}
 
+	// Test endpoint for displaying images
+	@GetMapping(value="/imagetest", produces = MediaType.IMAGE_JPEG_VALUE)
+	public ResponseEntity<byte[]> getImage() throws Exception {
+
+
+		byte[] bytes = Base64.decodeBase64(imageService.fetchImage());
+		return ResponseEntity
+				.ok()
+				.contentType(MediaType.IMAGE_JPEG)
+				.body(bytes);
+	}
 
 	
 	@PostMapping("/start")

@@ -2,6 +2,7 @@ package com.filmroulette.dao;
 
 import okhttp3.*;
 import org.springframework.stereotype.Component;
+import java.net.URL;
 
 @Component
 public class NetworkDAO {
@@ -30,5 +31,11 @@ public class NetworkDAO {
 
         }
         return responseBody;
+    }
+
+    public URL requestImage(String endpoint) throws Exception  {
+        // Image sizes available: w92, w154, w185, w342, w500, w780, original
+        URL url = new URL("http://image.tmdb.org/t/p/w185/" + endpoint);
+        return url;
     }
 }
