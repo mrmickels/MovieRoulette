@@ -34,6 +34,18 @@
 			<div th:text="'Released Date: ' + ${movies.releaseDate}"></div> 
 		</li><br>
 	</ul>
+
+	<h4> Now Playing Movies</h4>
+	<ul id="nowPlayingMovies" class="list-group" th:each="movies : ${nowPlayingMovie}" >
+		<li class="list-group-item">
+			<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>
+			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>
+				<div style="padding: 5px;" th:text="${movies.description}"></div>
+			</section>
+			<div th:text="'Released Date: ' + ${movies.releaseDate}"></div>
+		</li><br>
+	</ul>
+
 </body>
 <footer>
 </footer>

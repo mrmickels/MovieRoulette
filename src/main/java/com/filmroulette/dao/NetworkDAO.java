@@ -27,7 +27,7 @@ public class NetworkDAO {
         try (Response response = client.newCall(request).execute()){
 
             responseBody = response.body().string();
-            System.out.print(responseBody);
+            // System.out.print(responseBody);
 
         }
         return responseBody;

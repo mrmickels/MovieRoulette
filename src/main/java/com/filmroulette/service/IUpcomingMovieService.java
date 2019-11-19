@@ -1,6 +1,6 @@
 package com.filmroulette.service;
 
-import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ public interface IUpcomingMovieService {
 	 *@param id a unique lookup
 	 *@return a movie with matching movie
 	 */
-	UpcomingMovieDTO fetchById(int id);
+	MovieDTO fetchById(int id);
 
-	void save(UpcomingMovieDTO upcomingMovieDTO);
-	List<UpcomingMovieDTO> fetchUpcomingMovies() throws Exception;
+	void save(MovieDTO movieDTO);
+	List<MovieDTO> fetchUpcomingMovies() throws Exception;
 
 }
