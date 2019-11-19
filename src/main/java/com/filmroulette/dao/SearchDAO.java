@@ -14,11 +14,12 @@ public class SearchDAO implements ISearchDAO {
 	@Autowired
     private NetworkDAO networkDAO;
 
+	//may have to encode if user enters a special character
 	@Override
 	public List<NowPlayingMovieDTO> fetch(String searchTerm) throws Exception {
 		List<NowPlayingMovieDTO> searchResults = new ArrayList<>();
 		String endpoint = "https://api.themoviedb.org/3/search/movie?query=";
-		String api = "?include_adult=false&page=1&language=en-US&api_key=%3C%3C&api_key=f1165dd92f85c95c3898f9f66103659e";
+		String api = "&api_key=f1165dd92f85c95c3898f9f66103659e";
 		String rawJson = networkDAO.request(endpoint + searchTerm + api);
 		return parseSearchResults(searchResults, rawJson);
 	}
