@@ -1,9 +1,12 @@
 package com.filmroulette;
 
-
 import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.service.IImageService;
 import com.filmroulette.service.IUpcomingMovieService;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,8 @@ public class FilmRouletteController {
 
 	@Autowired
 	private IUpcomingMovieService upcomingMovieService;
+	@Autowired
+	private IImageService imageService;
 
 
 	@GetMapping(value="/start")
@@ -35,6 +40,17 @@ public class FilmRouletteController {
 
 		}
 
+	// Test endpoint for displaying images
+	@GetMapping(value="/imagetest", produces = MediaType.IMAGE_JPEG_VALUE)
+	public ResponseEntity<byte[]> getImage() throws Exception {
+
+
+		byte[] bytes = Base64.decodeBase64(imageService.fetchImage());
+		return ResponseEntity
+				.ok()
+				.contentType(MediaType.IMAGE_JPEG)
+				.body(bytes);
+	}
 
 	
 	@PostMapping("/start")
