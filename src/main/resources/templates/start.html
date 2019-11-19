@@ -4,6 +4,7 @@
 <head>
 	<title>Welcome to MovieRoulette</title>
 	<meta charset="ISO-8859-1"/>
+	<link rel="stylesheet" href="/css/start.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js%22%3E"></script>
@@ -11,91 +12,28 @@
 
 <body>
 	
-	<nav class="navbar navbar-light" style="background-color: #8f34eb;">
-		  <img src="images/FilmRouletteLogo.png" height="100" width="150">  
-	  <a class="navbar-brand">Welcome to MovieRoulette</a>
+	<nav class="navbar navbar-light" style="background-color: black;">
+		  <a href="home"><img src="images/FilmRouletteLogo.png" height="100" width="150"></a>
+	  <h1>Welcome to MovieRoulette</h1>
 	  <form class="form-inline">
-	    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	  	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    
 	  </form>
 	</nav>
 	<br/>
 
 	<h3>Upcoming Movies</h3>
-	<ul id="upcomingMovies" class="list-group" th:each="movies : ${allUpcomingMovies}">
-		<li class="list-group-item"><div th:text="${movies}"></div> </li>
-	</ul>
 
-	<div class="card-deck col-xs-6" style="padding: 20px;">
-	  <div class="card" style="max-width: 202px; max-height: 200px;" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider card </p>
-	      <p th:text="${allUpcomingMovies}"></p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	    </div>
-	  <div class="card" style="max-width: 202px; max-height: 200px" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This card has.</p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	<div class="card" style="max-width: 202px; max-height: 200px" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider card </p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	
-	    <div class="card" style="max-width: 202px; max-height: 200px"  >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider </p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	
-	    <div class="card" style="max-width: 202px; max-height: 200px" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider card </p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	
-	    <div class="card" style="max-width: 202px; max-height: 200px" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider card </p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	 
-	    <div class="card" style="max-width: 202px; max-height: 200px" >
-	    <img src="..." class="card-img-top" alt="...">
-	    <div class="card-body">
-	      <p class="card-text">This is a wider card </p>
-	    </div>
-	    <div class="card-footer">
-	      <small class="text-muted">Last updated 3 mins ago</small>
-	    </div>
-	  </div>
-	</div>
+	<ul id="upcomingMovies" class="list-group" th:each="movies : ${allUpcomingMovies}" >
+		<li class="list-group-item">
+			<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>		
+			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>	
+				<div style="padding: 5px;" th:text="${movies.description}"></div>
+			</section>
+			<div th:text="'Released Date: ' + ${movies.releaseDate}"></div> 
+		</li><br>
+	</ul>
 </body>
 <footer>
 </footer>
