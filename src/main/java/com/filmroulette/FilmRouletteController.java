@@ -3,7 +3,6 @@ package com.filmroulette;
 import com.filmroulette.dto.MovieDTO;
 import com.filmroulette.service.IImageService;
 import com.filmroulette.dao.ISearchDAO;
-import com.filmroulette.dto.NowPlayingMovieDTO;
 import com.filmroulette.service.INowPlayingService;
 import com.filmroulette.service.IUpcomingMovieService;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -78,7 +77,7 @@ public class FilmRouletteController {
 	@RequestMapping("/searchMovies")
 	public ModelAndView searchMovies(@RequestParam(value="searchTerm", required=false, defaultValue="") String searchTerm) {
 		ModelAndView modelAndView = new ModelAndView();
-		List<NowPlayingMovieDTO> searchResults = new ArrayList<>();
+		List<MovieDTO> searchResults = new ArrayList<>();
 		
 		try {
 			searchResults =  searchDAO.fetch(searchTerm);

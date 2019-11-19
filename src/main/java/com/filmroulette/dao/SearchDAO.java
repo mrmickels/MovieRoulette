@@ -2,13 +2,11 @@ package com.filmroulette.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.filmroulette.dto.NowPlayingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 
 @Component
 public class SearchDAO implements ISearchDAO {
@@ -18,15 +16,15 @@ public class SearchDAO implements ISearchDAO {
 
 	//may have to encode if user enters a special character
 	@Override
-	public List<NowPlayingMovieDTO> fetch(String searchTerm) throws Exception {
-		List<NowPlayingMovieDTO> searchResults = new ArrayList<>();
+	public List<MovieDTO> fetch(String searchTerm) throws Exception {
+		List<MovieDTO> searchResults = new ArrayList<>();
 		String endpoint = "https://api.themoviedb.org/3/search/movie?query=";
 		String api = "&api_key=f1165dd92f85c95c3898f9f66103659e";
 		String rawJson = networkDAO.request(endpoint + searchTerm + api);
 		return parseSearchResults(searchResults, rawJson);
 	}
 	
-	private List<NowPlayingMovieDTO> parseSearchResults(List<NowPlayingMovieDTO> searchResults, String rawJson) {
+	private List<MovieDTO> parseSearchResults(List<MovieDTO> searchResults, String rawJson) {
         JSONObject obj = new JSONObject(rawJson);
         JSONArray movies = obj.getJSONArray("results");
 
@@ -35,7 +33,7 @@ public class SearchDAO implements ISearchDAO {
             // JSON Data
             JSONObject jsonMovie = movies.getJSONObject(i);
             // Movie object that will be populated from JSON data
-            NowPlayingMovieDTO nowPlayingMovieDTO = new NowPlayingMovieDTO();
+            MovieDTO movieDTO = new MovieDTO();
 
             String overview = jsonMovie.getString("overview");
             String released = jsonMovie.getString("release_date");
@@ -43,14 +41,14 @@ public class SearchDAO implements ISearchDAO {
             double voteAverage = jsonMovie.getDouble("vote_average");
 
             // populate the DTO with this information
-            nowPlayingMovieDTO.setMovieId(i);
-            nowPlayingMovieDTO.setDescription(overview);
-            nowPlayingMovieDTO.setReleaseDate(released);
-            nowPlayingMovieDTO.setTitle(title);
-            nowPlayingMovieDTO.setVoteAverage(voteAverage);
+            movieDTO.setMovieId(i);
+            movieDTO.setDescription(overview);
+            movieDTO.setReleaseDate(released);
+            movieDTO.setTitle(title);
+            movieDTO.setVoteAverage(voteAverage);
 
             // add the populated movie to our collection
-            searchResults.add(nowPlayingMovieDTO);
+            searchResults.add(movieDTO);
         }
 
         return searchResults;
