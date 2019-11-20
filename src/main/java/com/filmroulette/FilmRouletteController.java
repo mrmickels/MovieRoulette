@@ -6,8 +6,6 @@ import com.filmroulette.dao.ISearchDAO;
 import com.filmroulette.service.INowPlayingService;
 import com.filmroulette.service.IUpcomingMovieService;
 import org.apache.tomcat.util.codec.binary.Base64;
-import java.util.List;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -77,18 +75,17 @@ public class FilmRouletteController {
 	@RequestMapping("/searchMovies")
 	public ModelAndView searchMovies(@RequestParam(value="searchTerm", required=false, defaultValue="") String searchTerm) {
 		ModelAndView modelAndView = new ModelAndView();
-		List<MovieDTO> searchResults = new ArrayList<>();
 		
 		try {
-			searchResults =  searchDAO.fetch(searchTerm);
+			Iterable<MovieDTO> searchResults =  searchDAO.fetch(searchTerm);
 			modelAndView.setViewName("movieResults");
+			modelAndView.addObject("searchResults", searchResults);
 			// set off and error if movies = 0
 		} catch (Exception  e) {
 			e.printStackTrace();
 			modelAndView.setViewName("error");
 		}
 		
-		modelAndView.addObject("searchResults", searchResults);
 		return modelAndView;
 	}
 }
