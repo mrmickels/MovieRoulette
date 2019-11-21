@@ -1,0 +1,42 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Welcome to MovieRoulette</title>
+	<meta charset="ISO-8859-1"/>
+	<link rel="stylesheet" href="/css/start.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js%22%3E"></script>
+</head>
+
+<body>
+	 
+	<nav class="navbar navbar-light" style="background-color: black;">
+		  <a href="home"><img src="images/FilmRouletteLogo.png" height="100" width="150"></a>
+	  <h1>Welcome to MovieRoulette</h1>
+	  <form class="form-inline" action="#" th:action="@{/searchMovies}" method="GET">
+	  	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
+	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    
+	  </form>
+	</nav>
+	<br/>
+
+	<h3>Search Results</h3>
+
+	<ul id="upcomingMovies" class="list-group" th:each="result : ${searchResults}" >
+		<li class="list-group-item">
+			<div style="text-decoration: underline; padding: 3px;" th:text="${result.title}"></div>		
+			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + result.posterPath}}"/>	
+				<div style="padding: 5px;" th:text="${result.description}"></div>
+			</section>
+			<div th:text="'Released Date: ' + ${result.releaseDate}"></div> 
+		</li><br>
+	</ul>
+
+
+</body>
+<footer>
+</footer>
+</html>

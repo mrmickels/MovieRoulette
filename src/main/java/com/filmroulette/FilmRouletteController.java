@@ -2,6 +2,7 @@ package com.filmroulette;
 
 import com.filmroulette.dto.MovieDTO;
 import com.filmroulette.service.IImageService;
+import com.filmroulette.dao.ISearchDAO;
 import com.filmroulette.service.INowPlayingService;
 import com.filmroulette.service.IUpcomingMovieService;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -11,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -21,6 +24,8 @@ public class FilmRouletteController {
 	private IUpcomingMovieService upcomingMovieService;
 	@Autowired
 	private IImageService imageService;
+	@Autowired
+	private ISearchDAO searchDAO;
 	@Autowired
     private INowPlayingService nowPlayingService;
 
@@ -65,4 +70,49 @@ public class FilmRouletteController {
 		
 		return "start";
 	}
+
+    // search for movies
+	@RequestMapping("/searchMovies")
+	public ModelAndView searchMovies(@RequestParam(value="searchTerm", required=false, defaultValue="") String searchTerm) {
+		ModelAndView modelAndView = new ModelAndView();
+
+		try {
+			Iterable<MovieDTO> searchResults =  searchDAO.fetch(searchTerm);
+			modelAndView.setViewName("movieResults");
+			modelAndView.addObject("searchResults", searchResults);
+			// set off and error if movies = 0
+		} catch (Exception  e) {
+			e.printStackTrace();
+			modelAndView.setViewName("error");
+		}
+
+		return modelAndView;
+	}
+
+	@GetMapping(value="/home")
+	public ModelAndView home() throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+
+		try{
+			Iterable<MovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
+			modelAndView.setViewName("home");
+			modelAndView.addObject("allUpcomingMovies", allUpcomingMovies);
+
+			Iterable<MovieDTO> nowPlayingMovie = nowPlayingService.fetchNowPlayingMovies();
+			modelAndView.addObject("nowPlayingMovie", nowPlayingMovie);
+
+		}
+		catch (Exception e){
+			e.printStackTrace();
+
+		}
+		return modelAndView;
+
+	}
+	@PostMapping("/home")
+	public String create1() {
+
+		return "home";
+	}
+
 }
