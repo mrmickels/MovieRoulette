@@ -28,7 +28,7 @@
 	<ul id="upcomingMovies" class="list-group" th:each="result : ${searchResults}" >
 		<li class="list-group-item">
 			<div style="text-decoration: underline; padding: 3px;" th:text="${result.title}"></div>		
-			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>	
+			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + result.posterPath}}"/>	
 				<div style="padding: 5px;" th:text="${result.description}"></div>
 			</section>
 			<div th:text="'Released Date: ' + ${result.releaseDate}"></div> 
