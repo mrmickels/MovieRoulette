@@ -4,14 +4,31 @@
 <head>
 	<title>Welcome to MovieRoulette</title>
 	<meta charset="ISO-8859-1"/>
-	<link rel="stylesheet" href="/css/index.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
+	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js%22%3E"></script>
+		
+<!-- ONCLICK INLINE TEST CODE
+		th:onclick="|upload('${movies['hi'].posterPath}', '${allUpcomingMovies}')|" 
+
+-->
+
 </head>
 
+<!-- CHANGES
+1. Removed 	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
+2. Added jQuery and bootstrap scripts to the bottom of the body
+3. Renamed index.css to home.css to rename consistent with naming conventions
+4. Linked first card image under the Upcoming Movies title the start.html file
+5. Added an onclick alert attribute in the second card image under the Upcoming Movies title for testing purposes
+ -->
+
 <body style="background: maroon;">
+
+<!-- ONCLICK VARIABLE STORAGE TEST CODE
+<img id="info" th:src=".." class="hi">
 	
+ -->
+ 
 	<nav class="navbar navbar-light" style="background-color: black;">
 		<img src="images/FilmRouletteLogo.png" height="100" width="150">
 		<h1>MovieRoulette</h1>
@@ -19,8 +36,7 @@
 	    	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 	    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
 	  </form>
-	</nav>
-	<br/>
+	</nav><br/>
 
 	<h3 id="1" style="float: left;">Upcoming Movies</h3><br><br>
  
@@ -28,7 +44,7 @@
 	
 		<div class="card" style="max-width: 245px; max-height: 400px;" >
 	    	<div class="card-body">
-				<a href="test"><img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/></a>
+				<a href="start"><img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/></a>
 	    	</div>
 		<div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
 	    </div>
@@ -36,7 +52,7 @@
 	    
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
+			<img th:onclick="'alert(\'a\');'" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 1">
 		    </div>
@@ -65,7 +81,7 @@
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 4">
 		    </div>
 		</div>
-		</div>
+	</div>
 		
 		
 	<h3 id="2" style="float: left;">Now Playing</h3><br><br>
@@ -112,6 +128,20 @@
 		    </div>
 		</div>
 	</div>
+	
+<!-- JAVASCRIPT CLICK FUNCTION TEST CODE 
+	<script th:inline="javascript">
+		$(document).ready(function () {
+			$(".card-body img").click(function(){
+				$("#info").attr("th:src", $(this).("th:src"));
+			});	
+		});
+	</script>
+-->
+ 
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 
 <footer>
