@@ -70,12 +70,12 @@ public class FilmRouletteController {
 		
 		return "start";
 	}
-	
+
     // search for movies
 	@RequestMapping("/searchMovies")
 	public ModelAndView searchMovies(@RequestParam(value="searchTerm", required=false, defaultValue="") String searchTerm) {
 		ModelAndView modelAndView = new ModelAndView();
-		
+
 		try {
 			Iterable<MovieDTO> searchResults =  searchDAO.fetch(searchTerm);
 			modelAndView.setViewName("movieResults");
@@ -85,7 +85,34 @@ public class FilmRouletteController {
 			e.printStackTrace();
 			modelAndView.setViewName("error");
 		}
-		
+
 		return modelAndView;
 	}
+
+	@GetMapping(value="/home")
+	public ModelAndView home() throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+
+		try{
+			Iterable<MovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
+			modelAndView.setViewName("home");
+			modelAndView.addObject("allUpcomingMovies", allUpcomingMovies);
+
+			Iterable<MovieDTO> nowPlayingMovie = nowPlayingService.fetchNowPlayingMovies();
+			modelAndView.addObject("nowPlayingMovie", nowPlayingMovie);
+
+		}
+		catch (Exception e){
+			e.printStackTrace();
+
+		}
+		return modelAndView;
+
+	}
+	@PostMapping("/home")
+	public String create1() {
+
+		return "home";
+	}
+
 }
