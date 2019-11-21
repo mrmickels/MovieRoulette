@@ -1,9 +1,9 @@
 package com.filmroulette.service;
 
-import com.filmroulette.dto.NowPlayingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 
 import java.util.List;
 
 public interface INowPlayingService {
-    List<NowPlayingMovieDTO> fetchNowPlayingMovies() throws Exception;
+    List<MovieDTO> fetchNowPlayingMovies() throws Exception;
 }

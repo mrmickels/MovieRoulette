@@ -6,4 +6,25 @@
     overflow: hidden;
     padding: 0 2rem;
     text-align: center;
+} 
+.card-body{
+	background-color: black;
+	border: 2px solid #A4A4A4 !important;
+	margin: auto;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+body{
+	background: url('images/theater.jpg');
+	color: white !important;
+}
+.navbar-brand{
+	text-decoration: underline !important;
+}
+.card{
+	margin: auto !important;
+	color: black;
+}
+h1{
+	text-decoration: underline;
 }

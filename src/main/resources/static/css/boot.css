@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+.table {
+    border-radius: 5px;
+    margin: 0px auto;
+    float: none;
+    width: 95% !important; 
+}

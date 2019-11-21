@@ -1,6 +1,6 @@
 package com.filmroulette.dao;
 
-import com.filmroulette.dto.UpcomingMovieDTO;
+import com.filmroulette.dto.MovieDTO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +20,15 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
 
 
     @Override
-    public List<UpcomingMovieDTO> fetch() throws Exception{
+    public List<MovieDTO> fetch() throws Exception{
 
-        List<UpcomingMovieDTO> allUpcomingMovies = new ArrayList<>();
+        List<MovieDTO> allUpcomingMovies = new ArrayList<>();
         String rawJson = networkDAO.request("https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f1165dd92f85c95c3898f9f66103659e");
         return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
     }
 
-    public List<UpcomingMovieDTO> fetch(String filepath) throws Exception{
-        List<UpcomingMovieDTO> allUpcomingMovies = new ArrayList<>();
+    public List<MovieDTO> fetch(String filepath) throws Exception{
+        List<MovieDTO> allUpcomingMovies = new ArrayList<>();
 
         String rawJson = "";
         try{
@@ -42,7 +42,7 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
         return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
     }
 
-    private List<UpcomingMovieDTO> getUpcomingMovieDTOS(List<UpcomingMovieDTO> allUpcomingMovies, String rawJson) {
+    private List<MovieDTO> getUpcomingMovieDTOS(List<MovieDTO> allUpcomingMovies, String rawJson) {
         JSONObject obj = new JSONObject(rawJson);
         JSONArray movies = obj.getJSONArray("results");
 
@@ -51,7 +51,7 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
             // JSON Data
             JSONObject jsonMovie = movies.getJSONObject(i);
             // Movie object that will be populated from JSON data
-            UpcomingMovieDTO upcomingMovieDTO = new UpcomingMovieDTO();
+            MovieDTO upcomingMovieDTO = new MovieDTO();
 
             String overview = jsonMovie.getString("overview");
             String released = jsonMovie.getString("release_date");
