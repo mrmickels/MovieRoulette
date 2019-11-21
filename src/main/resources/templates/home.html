@@ -15,8 +15,8 @@
 	<nav class="navbar navbar-light" style="background-color: black;">
 		<img src="images/FilmRouletteLogo.png" height="100" width="150">
 		<h1>MovieRoulette</h1>
-	  	<form class="form-inline">
-	    	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	  	<form class="form-inline" action="#" th:action="@{/searchMovies}" method="GET">
+	    	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
 	    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search </button>
 	  </form>
 	</nav>
