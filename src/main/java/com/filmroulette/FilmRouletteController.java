@@ -65,4 +65,31 @@ public class FilmRouletteController {
 		
 		return "start";
 	}
+	
+	@GetMapping(value="/home")
+	public ModelAndView home() throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+
+		try{
+			Iterable<MovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
+			modelAndView.setViewName("home");
+			modelAndView.addObject("allUpcomingMovies", allUpcomingMovies);
+
+			Iterable<MovieDTO> nowPlayingMovie = nowPlayingService.fetchNowPlayingMovies();
+			modelAndView.addObject("nowPlayingMovie", nowPlayingMovie);
+
+		}
+		catch (Exception e){
+			e.printStackTrace();
+
+		}
+		return modelAndView;
+
+	}
+	@PostMapping("/home")
+	public String create1() {
+		
+		return "home";
+	}
+	
 }
