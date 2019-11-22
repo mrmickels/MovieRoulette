@@ -26,7 +26,7 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
         String rawJson = networkDAO.request("https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f1165dd92f85c95c3898f9f66103659e");
         return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
     }
-
+//Fetch Method to retrieve all upcoming movies 
     public List<MovieDTO> fetch(String filepath) throws Exception{
         List<MovieDTO> allUpcomingMovies = new ArrayList<>();
 
@@ -49,21 +49,21 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
         for (int i = 0; i < movies.length(); i++) {
 
             // JSON Data
-            JSONObject jsonMovie = movies.getJSONObject(i);
+            JSONObject movieObject = movies.getJSONObject(i);
             // Movie object that will be populated from JSON data
             MovieDTO upcomingMovieDTO = new MovieDTO();
 
-            String overview = jsonMovie.getString("overview");
-            String released = jsonMovie.getString("release_date");
-            String title = jsonMovie.getString("title");
-            String posterPath = jsonMovie.getString("poster_path");
+            String overview = movieObject.getString("overview");
+            String released = movieObject.getString("release_date");
+            String title = movieObject.getString("title");
+            String posterImagePath = movieObject.getString("poster_path");
 
             // populate the DTO with this information
             upcomingMovieDTO.setMovieId(i);
             upcomingMovieDTO.setDescription(overview);
             upcomingMovieDTO.setReleaseDate(released);
             upcomingMovieDTO.setTitle(title);
-            upcomingMovieDTO.setPosterPath(posterPath);
+            upcomingMovieDTO.setPosterPath(posterImagePath);
 
             // add the populated movie to our collection
             allUpcomingMovies.add(upcomingMovieDTO);

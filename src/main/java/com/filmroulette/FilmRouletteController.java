@@ -30,11 +30,12 @@ public class FilmRouletteController {
     private INowPlayingService nowPlayingService;
 
 
-
+//Endpoint to check for all of the upcoming movies in the MovieDTO array and if there 
+//is an exception return the exception message
 	@GetMapping(value="/start")
 		public ModelAndView start() throws Exception {
 			ModelAndView modelAndView = new ModelAndView();
-
+			
 			try{
 				Iterable<MovieDTO> allUpcomingMovies = upcomingMovieService.fetchUpcomingMovies();
 				modelAndView.setViewName("start");
