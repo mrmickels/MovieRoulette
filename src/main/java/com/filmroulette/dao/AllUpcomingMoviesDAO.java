@@ -45,7 +45,8 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
     private List<MovieDTO> getUpcomingMovieDTOS(List<MovieDTO> allUpcomingMovies, String rawJson) {
         JSONObject obj = new JSONObject(rawJson);
         JSONArray movies = obj.getJSONArray("results");
-
+        System.out.println(movies);
+        
         for (int i = 0; i < movies.length(); i++) {
 
             // JSON Data
@@ -57,7 +58,9 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
             String released = jsonMovie.getString("release_date");
             String title = jsonMovie.getString("title");
             String posterPath = jsonMovie.getString("poster_path");
-
+            //String homepage = jsonMovie.getString("vote_average");
+            //System.out.println(homepage);
+            
             // populate the DTO with this information
             upcomingMovieDTO.setMovieId(i);
             upcomingMovieDTO.setDescription(overview);
