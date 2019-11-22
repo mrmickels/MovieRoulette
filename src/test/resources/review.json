@@ -1,0 +1,64 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2019 The New York Times Company. All Rights Reserved.",
+  "has_more": false,
+  "num_results": 3,
+  "results": [
+    {
+      "display_title": "Joker",
+      "mpaa_rating": "R",
+      "critics_pick": 0,
+      "byline": "A.O. SCOTT",
+      "headline": "\u2018Joker\u2019 Review: Are You Kidding Me?",
+      "summary_short": "Todd Phillips\u2019s supervillain origin story starring Joaquin Phoenix is stirring up a fierce debate, but it\u2019s not interesting enough to argue about.",
+      "publication_date": "2019-10-03",
+      "opening_date": "2019-10-04",
+      "date_updated": "2019-11-03 17:44:01",
+      "link": {
+        "type": "article",
+        "url": "http:\/\/www.nytimes.com\/2019\/10\/03\/movies\/joker-review.html",
+        "suggested_link_text": "Read the New York Times Review of Joker"
+      },
+      "multimedia": {
+        "type": "mediumThreeByTwo210",
+        "src": "https:\/\/static01.nyt.com\/images\/2019\/10\/05\/arts\/04Joker-Cover\/merlin_161549496_c55020b5-50f8-432b-a141-64fea126a42b-mediumThreeByTwo210.jpg",
+        "width": 210,
+        "height": 140
+      }
+    },
+    {
+      "display_title": "The Jokers",
+      "mpaa_rating": "",
+      "critics_pick": 0,
+      "byline": "BOSLEY CROWTHER",
+      "headline": "Jokers, The (Movie)",
+      "summary_short": "Bright, sassy anti-establishment caper centered on two brothers. Good brash, mod fun from Britain.",
+      "publication_date": "1967-05-16",
+      "opening_date": null,
+      "date_updated": "2017-11-02 04:15:58",
+      "link": {
+        "type": "article",
+        "url": "http:\/\/www.nytimes.com\/1967\/05\/16\/archives\/screen-the-jokers-british-crime-comedy-opens-sutton-theater-offers.html",
+        "suggested_link_text": "Read the New York Times Review of The Jokers"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "Le Farceur",
+      "mpaa_rating": "",
+      "critics_pick": 0,
+      "byline": "BOSLEY CROWTHER",
+      "headline": "Joker, The (Movie)",
+      "summary_short": "",
+      "publication_date": "1961-08-08",
+      "opening_date": null,
+      "date_updated": "2017-11-02 04:15:56",
+      "link": {
+        "type": "article",
+        "url": "http:\/\/www.nytimes.com\/1961\/08\/08\/archives\/screen-whimsical-french-comedy-joker-has-premiere-at-2-theatres.html",
+        "suggested_link_text": "Read the New York Times Review of Le Farceur"
+      },
+      "multimedia": null
+    }
+  ]
+}
