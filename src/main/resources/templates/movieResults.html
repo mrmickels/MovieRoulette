@@ -27,9 +27,14 @@
 
 	<ul id="upcomingMovies" class="list-group" th:each="result : ${searchResults}" >
 		<li class="list-group-item">
-			<div style="text-decoration: underline; padding: 3px;" th:text="${result.title}"></div>		
+		<!-- I'll remove the underline to the movie titles on this Movie Results page first, then see if I can add 
+		anything else to the organization .  EDIT:  I can't seem to get bold or italic to work, but 
+		I was able to successfully remove the underline and change the padding-->
+			<div style="text-decoration: italic; padding: 4px;" th:text="${result.title}"></div>		
 			<section><img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + result.posterPath}}"/>	
-				<div style="padding: 5px;" th:text="${result.description}"></div>
+				<!-- I'm going to change the padding of the div on the movieResults page.  -->
+				
+				<div style="padding: 6px;" th:text="${result.description}"></div>
 			</section>
 			<div th:text="'Released Date: ' + ${result.releaseDate}"></div> 
 		</li><br>

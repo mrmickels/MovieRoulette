@@ -11,9 +11,15 @@
 </head>
 
 <body style="background: maroon;">
-	
-	<nav class="navbar navbar-light" style="background-color: black;">
+	<!--tried changing the coloring, did not go how I wanted, changed it back.//    -->
+	<nav class="navbar navbar-light" style="background-color: black; font: Georgia;">
 		<img src="images/FilmRouletteLogo.png" height="100" width="150">
+		
+		<!-- I'll add a different style to the h1 text so it stands out more.  
+		I've also been trying to locate where the search button is styled because I want to change
+		the color of it.  UPDATE:  The changes where I removed the underline only worked on the 
+		search results page.  I'm not sure why yet.  -->
+		
 		<h1>MovieRoulette</h1>
 	  	<form class="form-inline" action="#" th:action="@{/searchMovies}" method="GET">
 	    	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
@@ -22,19 +28,26 @@
 	</nav>
 	<br/>
 
-	<h3 id="1" style="float: left;">Upcoming Movies</h3><br><br>
+	<h3 id="1" style="float: left; padding-left:12px;">Upcoming Movies</h3><br><br>
+	
+ <!-- Next, I'll change the card deck style , to see if I can fix the padding issue with the movie
+ posters.  Only ended up adding padding to between the cards, not within them itself. -->
  
 	<div class="card-deck col-xs-6" style="padding: 20px">
 	
-		<div class="card" style="max-width: 245px; max-height: 400px;" >
+		<div class="card" style="max-width: 245px; max-height: 420px;" >
 	    	<div class="card-body">
 				<a href="test"><img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/></a>
 	    	</div>
 		<div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
 	    </div>
 		</div>
-	    
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		
+	    <!-- changed the padding on the card and got the text to no longer be cut off.  Now I have to see if I can get all the 
+	    cards to match  -->
+	    <!-- Edit:  I changed all the card max-heights to 420.  Next, I'll change the padding some more to 
+	    see if shortening it will make it look a bit cleaner -->
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
 		    </div>
@@ -42,7 +55,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
 		    </div>
@@ -50,7 +63,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px;">
+		<div class="card" style="max-width: 245px; max-height: 420px;">
 		    <div class="card-body">
 				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
 		    </div>
@@ -58,7 +71,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
 		    </div>
@@ -67,12 +80,13 @@
 		</div>
 		</div>
 		
-		
-	<h3 id="2" style="float: left;">Now Playing</h3><br><br>
+	<!-- Adding padding to this header, h3 id=2, Now Playing, and the next one so they'll be more in line with the cards.
+	Edit:  Adding left padding worked, so I'll add the same left padding to the header above this too, Upcoming Movies. -->
+	<h3 id="2" style="float: left; padding-left:12px;">Now Playing</h3><br><br>
 		
 	<div class="card-deck col-xs-6" style="padding: 20px;">
 	
-		<div class="card" style="max-width: 245px; max-height: 400px;" >
+		<div class="card" style="max-width: 245px; max-height: 420px;" >
 	    	<div class="card-body">
 				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/>
 	    	</div>
@@ -80,7 +94,7 @@
 	    </div>
 		</div>
 	    
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
 		    </div>
@@ -88,7 +102,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
 		    </div>
@@ -96,7 +110,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px"  >
+		<div class="card" style="max-width: 245px; max-height: 420px"  >
 		    <div class="card-body">
 				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
 		    </div>
@@ -104,7 +118,7 @@
 		    </div>
 		</div>
 
-		<div class="card" style="max-width: 245px; max-height: 400px" >
+		<div class="card" style="max-width: 245px; max-height: 420px" >
 		    <div class="card-body">
 				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
 		    </div>

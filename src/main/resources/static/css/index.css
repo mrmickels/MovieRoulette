@@ -9,7 +9,7 @@
 } 
 .card-body{
 	background-color: black;
-	border: 2px solid #A4A4A4 !important;
+	border: 3px solid #400040!important;
 	margin: auto;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -23,8 +23,8 @@ body{
 }
 .card{
 	margin: auto !important;
-	color: black;
+	color: #8080ff;
 }
 h1{
-	text-decoration: underline;
+	text-decoration: bold;
 }

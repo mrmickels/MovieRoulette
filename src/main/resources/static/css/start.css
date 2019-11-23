@@ -6,7 +6,8 @@ section{
 	height: 325px;
 }
 h1{
-	text-decoration: underline; 
+	text-decoration: bold;
+	font:Georgia; 
 }
 .navbar-brand{
 	text-decoration: underline !important;
