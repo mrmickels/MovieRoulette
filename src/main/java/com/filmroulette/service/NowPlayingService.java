@@ -11,6 +11,8 @@ import java.util.List;
 /**
  *  Takes data from the DAO and returns the parsed through data.
  *  @return Parsed data from the UpcomingMovieDAO
+ *  
+ *  @throws exception e if invalid data is fetched
  */
 @Component
 public class NowPlayingService implements INowPlayingService {

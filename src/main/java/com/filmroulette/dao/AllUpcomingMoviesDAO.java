@@ -26,6 +26,12 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
         String rawJson = networkDAO.request("https://api.themoviedb.org/3/movie/upcoming?page=1&language=en-US&api_key=f1165dd92f85c95c3898f9f66103659e");
         return getUpcomingMovieDTOS(allUpcomingMovies, rawJson);
     }
+    /**
+     * Return JSON for allUpcomingMoveis
+     * @param takes filepath
+     * @return DTO for UpcomingMove
+     * @throws Exception if filepath cannot be read
+     */
 
     public List<MovieDTO> fetch(String filepath) throws Exception{
         List<MovieDTO> allUpcomingMovies = new ArrayList<>();
