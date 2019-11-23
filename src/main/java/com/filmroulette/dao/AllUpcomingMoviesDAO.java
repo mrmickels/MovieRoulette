@@ -54,7 +54,7 @@ public class AllUpcomingMoviesDAO implements IAllUpcomingMoviesDAO {
             MovieDTO upcomingMovieDTO = new MovieDTO();
 
             String overview = jsonMovie.getString("overview");
-            String released = jsonMovie.getString("release_date");
+            String released = jsonMovie.getDate("release_date");
             String title = jsonMovie.getString("title");
             String posterPath = jsonMovie.getString("poster_path");
 

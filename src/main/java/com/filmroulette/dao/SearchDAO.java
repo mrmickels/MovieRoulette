@@ -42,7 +42,7 @@ public class SearchDAO implements ISearchDAO {
             MovieDTO movieDTO = new MovieDTO();
 
             String overview = jsonMovie.getString("overview");
-            String released = jsonMovie.getString("release_date");
+            String released = jsonMovie.getDate("release_date");
             String title = jsonMovie.getString("title");
             double voteAverage = jsonMovie.getDouble("vote_average");
             String posterPath = jsonMovie.getString("poster_path");

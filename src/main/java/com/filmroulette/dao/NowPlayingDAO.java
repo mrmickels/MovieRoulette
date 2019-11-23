@@ -16,9 +16,9 @@ import java.util.List;
 public class NowPlayingDAO implements INowPlayingDAO {
 
     @Autowired
-    private NetworkDAO networkDAO;
+    private NetworkDAO;
     @Autowired
-    private IImageDAO iImageDAO;
+    private IImageDAO;
 
     @Override
     public List<MovieDTO> fetch() throws Exception{
@@ -57,10 +57,12 @@ public class NowPlayingDAO implements INowPlayingDAO {
             MovieDTO movieDTO = new MovieDTO();
 
             String overview = jsonMovie.getString("overview");
-            String released = jsonMovie.getString("release_date");
+            String released = jsonMovie.getDate("release_date");
             String title = jsonMovie.getString("title");
-            double voteAverage = jsonMovie.getDouble("vote_average");
+            double voteAverage = jsonMovie.getDouble("vote_average"); 
             String posterPath = jsonMovie.getString("poster_path");
+            
+            
 
 
             // populate the DTO with this information
