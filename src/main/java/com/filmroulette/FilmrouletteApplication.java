@@ -10,6 +10,7 @@ public class FilmrouletteApplication {
 		SpringApplication.run(FilmrouletteApplication.class, args);
 
 
+		System.setProperty("spring.devtools.restart.enabled", "false");
 	}
 
 }

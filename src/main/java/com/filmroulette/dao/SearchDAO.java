@@ -20,7 +20,7 @@ public class SearchDAO implements ISearchDAO {
 		List<MovieDTO> searchResults = new ArrayList<>();
 		String endpoint = "https://api.themoviedb.org/3/search/movie?query=";
 		String api = "&api_key=f1165dd92f85c95c3898f9f66103659e";
-		String rawJson = networkDAO.request(endpoint + searchTerm + api);
+		String rawJson = networkDAO.request(endpoint + searchTerm.toLowerCase() + api);
 		return getSearchResultMovieDTOS(searchResults, rawJson);
 	}
 	

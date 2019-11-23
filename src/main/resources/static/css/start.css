@@ -9,11 +9,13 @@ h1{
 	text-decoration: underline; 
 }
 .navbar-brand{
-	text-decoration: underline !important;
+	text-decoration: underline;
+	font-weight: bold !important;
 }
 body{
 	background: maroon !important;
 	color: white !important;
+	font-size: 1.5em !important;
 }
 li:nth-child(2n+1) { background: black;
 border: 2px solid #A4A4A4;

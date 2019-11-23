@@ -71,6 +71,10 @@ public class FilmRouletteController {
 		return "start";
 	}
 
+	@RequestMapping("/contact")
+	public String contact() {
+		return "contact";
+	}
     // search for movies
 	@RequestMapping("/searchMovies")
 	public ModelAndView searchMovies(@RequestParam(value="searchTerm", required=false, defaultValue="") String searchTerm) {

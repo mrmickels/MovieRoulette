@@ -24,7 +24,8 @@ body{
 .card{
 	margin: auto !important;
 	color: black;
+	font-weight: bold;
 }
 h1{
-	text-decoration: underline;
+	font-weight: bold;
 }
