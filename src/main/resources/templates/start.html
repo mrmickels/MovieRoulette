@@ -8,6 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js%22%3E"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<style>
+  		.ui-autocomplete-loading {
+    		background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+ 		 }
+   </style>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<script type="text/javascript">
+		$(function() {
+			$("#search").autocomplete({
+				source: "searchAutocomplete", 
+				minLength: 3
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -16,7 +32,7 @@
 		  <a href="home"><img src="images/FilmRouletteLogo.png" height="100" width="150"></a>
 	  <h1>Welcome to MovieRoulette</h1>
 	  <form class="form-inline" action="#" th:action="@{/searchMovies}" method="GET">
-	  	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
+	  	<input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search" name="searchTerm">
 	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 	    
 	  </form>

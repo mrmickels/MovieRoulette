@@ -5,6 +5,8 @@ import com.filmroulette.service.IImageService;
 import com.filmroulette.dao.ISearchDAO;
 import com.filmroulette.service.INowPlayingService;
 import com.filmroulette.service.IUpcomingMovieService;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -87,6 +90,22 @@ public class FilmRouletteController {
 		}
 
 		return modelAndView;
+	}
+	
+	@RequestMapping("/searchAutocomplete")
+	@ResponseBody
+	public List<String> searchAutocomplete(@RequestParam(value="term", required=false, defaultValue="") String term) {
+		List<String> suggestions = new ArrayList<String>();
+		try {
+			Iterable<MovieDTO> searchResults =  searchDAO.fetch(term);
+			for(MovieDTO movie : searchResults) {
+				suggestions.add(movie.getTitle()); 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return suggestions;
 	}
 
 	@GetMapping(value="/home")
