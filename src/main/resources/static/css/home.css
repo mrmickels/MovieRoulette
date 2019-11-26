@@ -1,8 +1,10 @@
 @charset "ISO-8859-1";
 
 <!-- CHANGES
-	1. Added card-footer padding and margin
-	
+	1. Added box-shadowing to cards
+	2. underline h3 tags
+	3. Added 0 border to cards 
+	4. Added css for bxslider, card-deck1, and styling to removed the border of the bxslider
 -->
 body{
 	background: url('images/theater.jpg');
@@ -14,14 +16,17 @@ h1{
 }
 h3{
 	color: white;
+	text-decoration: underline;
 }
 .card{
 	margin: auto !important;
 	color: black;
+	box-shadow: 10px 10px 10px black;
+	border: 0px !important;
 }
 .card-body{
 	background-color: black;
-	border: 2px solid #A4A4A4 !important;
+	border: 2.5px solid #A4A4A4 !important;
 	margin: auto;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -40,4 +45,16 @@ h3{
 } 
 .navbar-brand{
 	text-decoration: underline !important;
+}
+#bxslider{
+	background-color: maroon;
+}
+.card-deck1{
+	border: maroon !important;
+}
+.bx-wrapper, .bx-viewport{
+  	-moz-box-shadow: none !important;
+  	-webkit-box-shadow: none !important;
+  	box-shadow: none !important;
+  	border: 0 !important;
 }

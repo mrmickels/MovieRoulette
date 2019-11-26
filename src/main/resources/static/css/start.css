@@ -1,14 +1,13 @@
 @charset "ISO-8859-1";
 
 /* CHANGES
-1. Added <ul> padding
-2. Added <h3> padding && text-decoration
-3. Implemented a border on the top and bottom of the <nav> tag
-4. Added padding and a border to the section tag
-
+	1. Added every other styling for ul tag
+	2. Made the section, li, and ul tags smaller
+	3. Added shadowing to the li tags
+	4. Added styling for a side by side ul
 */
 body{
-	background: maroon !important;
+	background-color: maroon !important;
 	color: white !important;
 }
 h1{
@@ -18,15 +17,14 @@ h3{
 	padding: 5px;
 	text-decoration: underline;
 }
-li:nth-child(2n+1) { 
+li:nth-child(2n+1){ 
 	background: black;
 	border: 2px solid #A4A4A4;
-	padding: 5px;
+	padding: 10px;
+	width: 70%;
+	padding-top: 5px;
 }
-ul{
-	padding: 10px !important;
-}
-section{
+#image{
 	background: black;
 	width: 100%;
 	height: 325px;
@@ -35,7 +33,28 @@ section{
 }
 ul{
 	padding: 10px !important;
+	/*box-shadow: 10px 10px 10px black;*/
+	width: 800px;
+}
+ul:nth-child(2n+1){
+	color: blue;
 }
 .navbar-brand{
 	text-decoration: underline !important;
+}
+#nowPlayingMovies{
+	float: left;
+	vertical-align: top;
+}
+#upcomingMovies{
+	float: left;
+	vertical-align: top;
+}
+#upcoming{
+	float: left;
+	width: 50%;
+}
+#now{
+	float: right;
+	width: 50%;
 }

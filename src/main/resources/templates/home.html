@@ -6,7 +6,11 @@
 	<meta charset="ISO-8859-1"/>
 	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
 <!-- ONCLICK INLINE TEST CODE
 		th:onclick="|upload('${movies['hi'].posterPath}', '${allUpcomingMovies}')|" 
 
@@ -15,11 +19,13 @@
 </head>
 
 <!-- CHANGES
-1. Removed 	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
-2. Added jQuery and bootstrap scripts to the bottom of the body
-3. Renamed index.css to home.css to rename consistent with naming conventions
-4. Linked first card image under the Upcoming Movies title the start.html file
-5. Added an onclick alert attribute in the second card image under the Upcoming Movies title for testing purposes
+1. Added a javascript function for mouse over opacity change
+2.Added cards for all 20 movies
+3. Added javascript function for a bxslider
+4.Moved jquery script to the head 
+5. Added 2 scripts for ajax and bxslider and a link for bxslider
+6. Added an id of bxslider to the card deck 
+7. Renamed the card-deck to card-deck1
  -->
 
 <body style="background: maroon;">
@@ -40,11 +46,11 @@
 
 	<h3 id="1" style="float: left;">Upcoming Movies</h3><br><br>
  
-	<div class="card-deck col-xs-6" style="padding: 20px">
+	<div id="bxslider" class="card-deck1 col-xs-6" style="padding: 20px">
 	
 		<div class="card" style="max-width: 245px; max-height: 400px;" >
 	    	<div class="card-body">
-				<a href="start"><img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/></a>
+				<a href="start"><img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/></a>
 	    	</div>
 		<div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
 	    </div>
@@ -52,7 +58,7 @@
 	    
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-			<img th:onclick="'alert(\'a\');'" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
+			<img class="image" th:onclick="'alert(\'a\');'" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 1">
 		    </div>
@@ -60,7 +66,7 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 2">
 		    </div>
@@ -68,7 +74,7 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px;">
 		    <div class="card-body">
-				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 3">
 		    </div>
@@ -76,13 +82,124 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 4">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 5"/>
 		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 5">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 6"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 6">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 7"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 7">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 8"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 8">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 9"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 9">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 10"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 10">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 11"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 11">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 12"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 12">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 13"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 13">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 14"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 14">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 15"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 15">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 16"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 16">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 17"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 17">
+		    </div>	    
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${allUpcomingMovies}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 18"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${allUpcomingMovies}" th:text="${movies.title}" th:if="${movies.movieId} == 18">
+		    </div>	    
 		</div>
 	</div>
-		
 		
 	<h3 id="2" style="float: left;">Now Playing</h3><br><br>
 		
@@ -90,7 +207,7 @@
 	
 		<div class="card" style="max-width: 245px; max-height: 400px;" >
 	    	<div class="card-body">
-				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/>
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/>
 	    	</div>
 		<div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
 	    </div>
@@ -98,7 +215,7 @@
 	    
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 1"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 1">
 		    </div>
@@ -106,7 +223,7 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 2"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 2">
 		    </div>
@@ -114,7 +231,7 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px"  >
 		    <div class="card-body">
-				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 3"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 3">
 		    </div>
@@ -122,24 +239,37 @@
 
 		<div class="card" style="max-width: 245px; max-height: 400px" >
 		    <div class="card-body">
-				<img th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 4"/>
 		    </div>
 		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 4">
 		    </div>
 		</div>
 	</div>
 	
-<!-- JAVASCRIPT CLICK FUNCTION TEST CODE 
-	<script th:inline="javascript">
+<!-- JAVASCRIPT CLICK FUNCTION TEST CODE -->
+	<script>
 		$(document).ready(function () {
-			$(".card-body img").click(function(){
-				$("#info").attr("th:src", $(this).("th:src"));
+			$(".image").mouseenter(function(){	
+				$(this).css( {"opacity":"0.8"} );	  
+			}).mouseout(function(){	
+				$(this).css( {"opacity":"1.0"} );
+			});	
+			
+			$("#bxslider").bxSlider({
+			    //$(".card-deck").show();
+				easing: 'easeInCubic',
+			    minSlides: 1,
+			    maxSlides: 4,
+			    mode: 'horizontal',
+			    adaptiveHeight: true,
+			    slideWidth: 400,
+			    moveSlides: 1,
+			    touchEnabled: true,
+
 			});	
 		});
 	</script>
--->
- 
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>

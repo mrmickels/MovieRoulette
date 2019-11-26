@@ -7,12 +7,10 @@
 	<link rel="stylesheet" href="/css/start.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<!-- 
-1. removed 	<link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/main.css}">
-2. Added jQuery and bootstrap scripts to the bottom of the body
-3. Removed the <br> after first </ul>
-4. Added too many <br> between the two <ul> for visual testing
-
+<!-- CHANGES
+1. Added section tags for each ul 
+2. Added an id for image sections
+3. Added section tags for each list 
  -->
 <body>
 	 
@@ -25,31 +23,36 @@
 	  	</form>
 	</nav><br/>
 
-	<h3>Upcoming Movies</h3>
+	<section id="upcoming">
+		<h3 id="upcoming">Upcoming Movies</h3>
 	
-	<ul id="upcomingMovies" class="list-group" th:each="movies : ${allUpcomingMovies}" >
-		<li class="list-group-item">
-			<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>		
-			<section>
-				<img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>	
-				<div style="padding: 5px;" th:text="${movies.description}"></div>
-			</section>
-			<div th:text="'Released Date: ' + ${movies.releaseDate}"></div> 
-		</li>
-	</ul>
+		<ul id="upcomingMovies" class="list-group" th:each="movies : ${allUpcomingMovies}" >
+			<li class="list-group-item">
+				<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>		
+				<section id="image">
+					<img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>	
+					<div style="padding: 5px;" th:text="${movies.description}"></div>
+				</section>
+				<div th:text="'Released Date: ' + ${movies.releaseDate}"></div> 
+			</li>
+		</ul>
+	</section>
 
-	<h4> Now Playing Movies</h4>
-	<ul id="nowPlayingMovies" class="list-group" th:each="movies : ${nowPlayingMovie}" >
-		<li class="list-group-item">
-			<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>
-			<section>
-				<img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>
-				<div style="padding: 5px;" th:text="${movies.description}"></div>
-			</section>
-			<div th:text="'Released Date: ' + ${movies.releaseDate}"></div>
-		</li>
-	</ul>
-	
+	<section id="now">
+		<h3 id="nowPlaying"> Now Playing Movies</h3>
+		
+		<ul id="nowPlayingMovies" class="list-group" th:each="movies : ${nowPlayingMovie}" >
+			<li class="list-group-item">
+				<div style="text-decoration: underline; padding: 3px;" th:text="${movies.title}"></div>
+				<section id="image">
+					<img style="float: left; padding: 10px;" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}"/>
+					<div style="padding: 5px;" th:text="${movies.description}"></div>
+				</section>
+				<div th:text="'Released Date: ' + ${movies.releaseDate}"></div>
+			</li>
+		</ul>
+	</section>
+
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
