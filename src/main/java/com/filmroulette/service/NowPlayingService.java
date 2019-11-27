@@ -23,7 +23,7 @@ public class NowPlayingService implements INowPlayingService {
         List<MovieDTO> nowPlayingMovies;
 
         // This is because I am unable to make Network requests at work, uncomment line 27 and comment line 26 to switch to the actual network requests
-        nowPlayingMovies = nowPlayingDAO.fetch("src\\test\\resources\\nowplayingresults.json");
+        nowPlayingMovies = nowPlayingDAO.fetch("src\\test\\resources\\nowplayingmovieresults.json");
         //nowPlayingMovies = nowPlayingDAO.fetch();
 
         try{
