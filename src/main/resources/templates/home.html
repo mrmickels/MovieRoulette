@@ -7,8 +7,10 @@
 	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/sunny/jquery-ui.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>		
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"></script>	
 	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <!-- ONCLICK INLINE TEST CODE
@@ -26,6 +28,8 @@
 5. Added 2 scripts for ajax and bxslider and a link for bxslider
 6. Added an id of bxslider to the card deck 
 7. Renamed the card-deck to card-deck1
+8. Set pager to false for the bxslider
+9. Set slider to scroll 5 cards a time and changed the width to fit 5 cards
  -->
 
 <body style="background: maroon;">
@@ -201,16 +205,16 @@
 		</div>
 	</div>
 		
-	<h3 id="2" style="float: left;">Now Playing</h3><br><br>
-		
-	<div class="card-deck col-xs-6" style="padding: 20px;">
+	<br><h3 id="2" style="float: left;">Now Playing</h3><br><br>
+
+	<div id="bxslider1" class="card-deck1 col-xs-6" style="padding: 20px;">
 	
 		<div class="card" style="max-width: 245px; max-height: 400px;" >
 	    	<div class="card-body">
 				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 0"/>
 	    	</div>
-		<div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
-	    </div>
+			<div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 0">
+	    	</div>
 		</div>
 	    
 		<div class="card" style="max-width: 245px; max-height: 400px" >
@@ -244,8 +248,121 @@
 		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 4">
 		    </div>
 		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 5"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 5">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 6"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 6">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 7"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 7">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 8"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 8">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 9"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 9">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 10"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 10">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 11"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 11">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 12"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 12">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 13"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 13">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 14"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 14">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 15"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 15">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 16"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 16">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 17"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 17">
+		    </div>
+		</div>
+		
+		<div class="card" style="max-width: 245px; max-height: 400px" >
+		    <div class="card-body">
+				<img class="image" th:each="movies : ${nowPlayingMovie}" th:src="@{${'https://image.tmdb.org/t/p/w200/' + movies.posterPath}}" th:if="${movies.movieId} == 18"/>
+		    </div>
+		    <div class="card-footer" th:each="movies : ${nowPlayingMovie}" th:text="${movies.title}" th:if="${movies.movieId} == 18">
+		    </div>
+		</div>
 	</div>
 	
+
 <!-- JAVASCRIPT CLICK FUNCTION TEST CODE -->
 	<script>
 		$(document).ready(function () {
@@ -256,17 +373,67 @@
 			});	
 			
 			$("#bxslider").bxSlider({
-			    //$(".card-deck").show();
-				easing: 'easeInCubic',
 			    minSlides: 1,
-			    maxSlides: 4,
+			    maxSlides: 5,
 			    mode: 'horizontal',
-			    adaptiveHeight: true,
-			    slideWidth: 400,
-			    moveSlides: 1,
+			    adaptiveHeight: false,
+			    slideWidth: 285,
+			    moveSlides: 5,
 			    touchEnabled: true,
-
+				pager: false
 			});	
+			$("#bxslider1").bxSlider({
+			    minSlides: 1,
+			    maxSlides: 5,
+			    mode: 'horizontal',
+			    adaptiveHeight: false,
+			    slideWidth: 285,
+			    moveSlides: 5,
+			    touchEnabled: true,
+				pager: false
+			});	
+			/*
+			$(".card-body img").click(function(){
+				$(".card1").attr("text", $(this).attr("text"));
+			$("#dialog").dialog({
+				modal: true,
+				width: 450,
+				buttons:{
+					Cancel: function(){$(this).dialog("close");
+					}
+					//Show: function(){$(this).text($(".card1").text());
+					//}
+				}
+			});	
+			});	
+	
+			$(".card-footer").animate(
+					{marginLeft: "100%"
+						
+						},
+					4000
+				);
+			
+			var left = $(".card-footer").offset().left;  // Get the calculated left position
+
+			$(".card-footer").css({left:left})  // Set the left to its calculated position
+			             .animate({"left":"0px"}, "slow");*/
+
+			$('.card-footer').click(function() {
+
+			    $(this).animate({
+			        marginLeft: '-150%'
+			    }, 500, function() {
+			        $(this).css('left', '150%');
+			        //$(this).appendTo(this);
+			    });
+
+			    $(this).next().animate({
+			        marginRight: '150%'
+			    }, 500);
+			});
+			           
+			             
 		});
 	</script>
 

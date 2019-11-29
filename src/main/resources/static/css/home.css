@@ -5,6 +5,9 @@
 	2. underline h3 tags
 	3. Added 0 border to cards 
 	4. Added css for bxslider, card-deck1, and styling to removed the border of the bxslider
+	5. Changed the radius of the border for the cards to fit
+	6. Added margins to the left and right of each image
+	7. Added margins to the bx-wrapper and bx-viewpost
 -->
 body{
 	background: url('images/theater.jpg');
@@ -22,14 +25,17 @@ h3{
 	margin: auto !important;
 	color: black;
 	box-shadow: 10px 10px 10px black;
-	border: 0px !important;
+	border: 0 !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+	overflow: hidden !important;
 }
 .card-body{
 	background-color: black;
 	border: 2.5px solid #A4A4A4 !important;
 	margin: auto;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 4.2px;
+	border-top-right-radius: 4.2px;
 }
 .card-footer{
 	padding: 5px !important;
@@ -46,15 +52,37 @@ h3{
 .navbar-brand{
 	text-decoration: underline !important;
 }
-#bxslider{
-	background-color: maroon;
-}
 .card-deck1{
 	border: maroon !important;
+	background-color: maroon !important;
+	padding: 0px !important;
 }
 .bx-wrapper, .bx-viewport{
   	-moz-box-shadow: none !important;
   	-webkit-box-shadow: none !important;
   	box-shadow: none !important;
   	border: 0 !important;
+  	margin: auto !important;
+}
+.bx-viewport{
+	background-color: maroon !important;
+}
+.bx-prev{
+	position: absolute !important;
+	left: -30px !important;
+	
+}
+.bx-next{
+	position: absolute !important;
+	right: -30px !important;
+}
+#container{
+	overflow: hidden;
+}
+	#dialog {
+		display: none;
+	}
+#2{
+	padding: 10px !important;
+	margin: auto;
 }
