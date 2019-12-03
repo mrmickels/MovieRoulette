@@ -36,8 +36,8 @@ public class UpcomingMovieService implements IUpcomingMovieService{
         List<MovieDTO> allUpcomingMovies;
 
         // This is because I am unable to make Network requests at work, uncomment line 41 and comment line 40 to switch to the actual network requests
-        // allUpcomingMovies = allUpcomingMoviesDAO.fetch("src\\test\\resources\\upcomingmovieresults.json");
-        allUpcomingMovies = allUpcomingMoviesDAO.fetch();
+        allUpcomingMovies = allUpcomingMoviesDAO.fetch("src\\test\\resources\\upcomingmovieresults.json");
+        //allUpcomingMovies = allUpcomingMoviesDAO.fetch();
 
         try{
             if (allUpcomingMovies != null) {
