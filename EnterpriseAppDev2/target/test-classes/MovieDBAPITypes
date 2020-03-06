@@ -1,0 +1,118 @@
+When you make a call to the MovieDatabase API, these are the results and result type.
+In src > test > resources there are sample JSON returns of:
+	UpcomingMovie 	- upcomingmovieresults
+	NowPlaying		- nowplayingresults
+	SearchPerson	- searchpersonresults
+	MultiSearch		- multisearchresults
+
+################################################################
+UpcomingMovie
+
+results					array[object]
+	poster_path			string or null
+	adult				boolean
+	overview			string
+	release_date		string
+	genre_ids			array[integer]
+	id					integer
+	original_title		string
+	original_language	string
+	title				string
+	backdrop_path		string or null
+	popularity			number
+	vote_count			integer
+	video				boolean
+	vote_average		number
+dates					object
+	maximum				string
+	minimum				string
+################################################################
+NowPlaying
+
+page					integer
+results					array[object]
+	poster_path			string or null
+	adult				boolean
+	overview			string
+	release_date		string
+	genre_ids			array[integer]
+	id					integer
+	original_title		string
+	original_language	string
+	title				string
+	backdrop_path		string or null
+	popularity			number
+	vote_count			integer
+	video				boolean
+	vote_average		number
+dates					object
+	maximum				string
+	minimum				string
+total_pages				integer
+total_results			integer
+################################################################
+SearchMovie
+
+page					integer
+results					array[object]
+	poster_path			string or null
+	adult				boolean
+	overview			string
+	release_date		string
+	genre_ids			array[integer]
+	id					integer
+	original_title		string
+	original_language	string
+	title				string
+	backdrop_path		string or null
+	popularity			number
+	vote_count			integer
+	video				boolean
+	vote_average		number
+total_pages				integer
+total_results			integer
+################################################################
+SearchPerson
+
+page					integer
+results					array[object]
+	profile_path		string or null
+	adult				boolean
+	id					integer
+	known_for			oneOf
+			object{Movie List Results Object (with media_type)}
+				poster_path			string or null
+				adult				boolean
+				overview			string
+				release_date		string
+				genre_ids			array[integer]
+				id					integer
+				media_type			string
+				original_language	string
+				title				string
+				backdrop_path		string or null
+				popularity			number
+				vote_count			integer
+				video				boolean
+				vote_average		number
+			object{TV List Results Object (with media_type)}
+				poster_path			string or null
+				popularity			number
+				id					integer
+				overview			string
+				backdrop_path		string or null
+				vote_average		number
+				media_type			string
+				first_air_date		string
+				origin_country		array[string]
+				genre_ids			array[integer]
+				original_language	string
+				vote_count			integer
+				name				string
+				original_name		string
+			name				string
+			popularity			number
+		total_pages				integer
+		total_results			integer
+################################################################
+GetConfiguration

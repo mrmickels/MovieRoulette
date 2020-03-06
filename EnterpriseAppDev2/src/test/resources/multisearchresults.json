@@ -1,0 +1,113 @@
+{
+    "page": 1,
+    "total_results": 2,
+    "total_pages": 1,
+    "results": [
+        {
+            "known_for_department": "Acting",
+            "id": 73457,
+            "name": "Chris Pratt",
+            "known_for": [
+                {
+                    "release_date": "2014-08-01",
+                    "id": 118340,
+                    "vote_count": 19118,
+                    "video": false,
+                    "media_type": "movie",
+                    "vote_average": 7.9,
+                    "title": "Guardians of the Galaxy",
+                    "genre_ids": [
+                        28,
+                        12,
+                        878
+                    ],
+                    "original_title": "Guardians of the Galaxy",
+                    "original_language": "en",
+                    "adult": false,
+                    "backdrop_path": "/kHex2XdOmGtazk1VfJjp4bl7BIc.jpg",
+                    "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+                    "poster_path": "/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg"
+                },
+                {
+                    "release_date": "2018-04-27",
+                    "id": 299536,
+                    "vote_count": 15721,
+                    "video": false,
+                    "media_type": "movie",
+                    "vote_average": 8.3,
+                    "title": "Avengers: Infinity War",
+                    "genre_ids": [
+                        28,
+                        12,
+                        878
+                    ],
+                    "original_title": "Avengers: Infinity War",
+                    "original_language": "en",
+                    "adult": false,
+                    "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+                    "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+                    "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+                },
+                {
+                    "release_date": "2015-06-12",
+                    "id": 135397,
+                    "vote_count": 14666,
+                    "video": false,
+                    "media_type": "movie",
+                    "vote_average": 6.6,
+                    "title": "Jurassic World",
+                    "genre_ids": [
+                        28,
+                        12,
+                        878,
+                        53
+                    ],
+                    "original_title": "Jurassic World",
+                    "original_language": "en",
+                    "adult": false,
+                    "backdrop_path": "/t5KONotASgVKq4N19RyhIthWOPG.jpg",
+                    "overview": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+                    "poster_path": "/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"
+                }
+            ],
+            "popularity": 13.015,
+            "profile_path": "/gXKyT1YU5RWWPaE1je3ht58eUZr.jpg",
+            "gender": 2,
+            "media_type": "person",
+            "adult": false
+        },
+        {
+            "known_for_department": "Acting",
+            "id": 2089965,
+            "name": "Chris Pratt",
+            "known_for": [
+                {
+                    "release_date": "2018-08-03",
+                    "id": 420814,
+                    "vote_count": 1528,
+                    "video": false,
+                    "media_type": "movie",
+                    "vote_average": 7.4,
+                    "title": "Christopher Robin",
+                    "genre_ids": [
+                        12,
+                        35,
+                        14,
+                        10751
+                    ],
+                    "original_title": "Christopher Robin",
+                    "original_language": "en",
+                    "adult": false,
+                    "backdrop_path": "/uDt8bQ4lGVlabEx5Gl2cPzvy6qz.jpg",
+                    "overview": "Christopher Robin, the boy who had countless adventures in the Hundred Acre Wood, has grown up and lost his way. Now it’s up to his spirited and loveable stuffed animals, Winnie The Pooh, Tigger, Piglet, and the rest of the gang, to rekindle their friendship and remind him of endless days of childlike wonder and make-believe, when doing nothing was the very best something.",
+                    "poster_path": "/fQYgljzKgkeGEukezaJsMWp7oq1.jpg"
+                }
+            ],
+            "popularity": 1.159,
+            "profile_path": null,
+            "gender": 0,
+            "media_type": "person",
+            "adult": false
+        }
+    ]
+}
